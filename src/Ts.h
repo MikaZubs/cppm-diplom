@@ -1,10 +1,10 @@
 #pragma once
 
-#include "AirTs/eagle.h"
-#include "AirTs/broom.h"
-#include "AirTs/carpet.h"
+#include "TSlib/eagle.h"
+#include "TSlib/broom.h"
+#include "TSlib/carpet.h"
 
-#include "GndTs/centaur.h"
-#include "GndTs/boots.h"
-#include "GndTs/camel.h"
-#include "GndTs/camelracer.h"
+#include "TSlib/centaur.h"
+#include "TSlib/boots.h"
+#include "TSlib/camel.h"
+#include "TSlib/camelracer.h"
