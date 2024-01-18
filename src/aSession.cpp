@@ -21,15 +21,14 @@ int trackLength()   {
 
 void race_session (Transport* RacersList[], int race_mode, int track_length) {
     
-    Transport* a_boot = new Boots (track_length);
-    Transport* a_camel = new Camel (track_length);
-    Transport* a_camelrace = new CamelFast (track_length);
-    Transport* a_centaur = new Centaur (track_length);
-    Transport* a_broom = new Broom (track_length);
-    Transport* a_carpet = new Carpet (track_length);
-    Transport* a_eagle = new Eagle (track_length);
+    Boots a_boot (track_length);
+    Camel a_camel (track_length);
+    CamelFast a_camelrace (track_length);
+    Centaur a_centaur (track_length);
+    Broom a_broom (track_length);
+    Carpet a_carpet (track_length);
+    Eagle a_eagle (track_length);
     
-
     int user_input = 1;
     int input_object = 10;
     int racer_counter = 0;
@@ -121,13 +120,6 @@ void race_session (Transport* RacersList[], int race_mode, int track_length) {
 
     race_result (RacersList, track_length); user_input = 0;
 
-    // delete[] a_boot;
-    // delete[] a_camel;
-    // delete[] a_camelrace;
-    // delete[] a_centaur;
-    // delete[] a_broom;
-    // delete[] a_carpet;
-    // delete[] a_eagle;
 }
 
 int race_restart () {
@@ -165,12 +157,12 @@ void registry_display(Transport* Racerlist[], int race_mode, int race_lenght) {
 }
 
 
-bool check_racer_reg(Transport* Racerlist[], Transport* checker) {
+bool check_racer_reg(Transport* Racerlist[], Transport checker) {
     int count = 0;
     do {
         if (Racerlist[count] == NULL) {
             return false;
-        } else if (Racerlist[count]->getName() == checker->getName()) {
+        } else if (Racerlist[count]->getName() == checker.getName()) {
             return true;    
         }        
         count++;
@@ -178,13 +170,13 @@ bool check_racer_reg(Transport* Racerlist[], Transport* checker) {
     return false;
 }
 
-void racer_reg_true (Transport* checker) {
+void racer_reg_true (Transport checker) {
     system("cls");
-    std::cout << checker->getName() << " уже зарегистрирован!" << std::endl;
+    std::cout << checker.getName() << " уже зарегистрирован!" << std::endl;
 }
 
-bool check_race_mode(int race_mode, Transport* checker) {
-    if (race_mode == checker->getType() || race_mode == 3) {return true;}
+bool check_race_mode(int race_mode, Transport checker) {
+    if (race_mode == checker.getType() || race_mode == 3) {return true;}
     return false;
 }
 
